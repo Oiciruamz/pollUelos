@@ -10,41 +10,96 @@
 
 <body>
 
-    <header class="header">
-        <div class = "contenedor contenido-header">   
-            <div class = "navegacion">
+    <header class = "header">
+        <div class = "contenido-header">
+
+            <div class = "mobile-menu">
+                <img src="src/img/barras.svg" alt="">
+            </div>
+    
+            <nav class = "navegacion">
                 <a href="">Inicio</a>
                 <a href="">Menú</a>
+                <a href="contacto.html">Contacto</a>
                 <a href="">Nosotros</a>
-                <a href="">Contacto</a>
-            </div>
-
-
-            <div class = "iconos">
+            </nav>
+    
+    
+            <div class="iconos">
                 <a href="#">
-                    <img src="src/img/carro.png" alt="icono carrito" class = "icono">
+                    <img src="src/img/carro.png" alt="" class = "icono">
                 </a>
                 <a href="#">
-                    <img src="src/img/usuario.png" alt="icono usuario" class = "icono">
+                    <img src="src/img/usuario.png" alt="" class = "icono">
                 </a>
-                
             </div>
+    
+
         </div>
     </header>
 
     <main>
 
         <div class = "imagen-contenedor">
-            <img src="src/img/polluelooos.png" alt="" class = "img-small">
 
-            <div class="contenedor-cita">
-            <blockquote class="cita">
-                "Asado a la perfección 
-                amor en cada porción."
-            </blockquote>
+            <div class = "contenido-main">
+
+                        <div class ="img-logo">
+                            <img src="src/img/polluelooos.png" alt="logo" class = "img-small">
+                        </div>
+                        <div class="cita-contenedor">
+                                <blockquote class="cita">
+                                        "Asado a la perfección 
+                                        amor en cada porción."
+                                </blockquote>
+                        </div>
             </div>
         </div>
-
+        
     </main>
 
+
+    <section class="contenedor-prensa">
+        <h2>Que piensa la prensa de nosotros</h2>
+        <div class="opinion-contenedor">
+            <div class="opinion">
+                <div>
+                    <img src="src/img/estrellas.png" class = "imagen-opinion">
+                </div>
+               <div class="texto-opinion">
+                <p>
+                    “Cada bocado de sus pollos asados es una explosión de sabores deliciosos y jugosos, dejando
+                     una impresión memorable en cada comensal.” <br/><br/>
+                        <strong>-El Norte</strong>
+                </p>
+               </div> 
+            </div>
+            <div class="opinion">
+                <div>
+                    <img src="src/img/estrellas.png" class = "imagen-opinion">
+                </div>
+                <div class="texto-opinion">
+                    <p> “ Sin duda, Polluelos es un lugar donde el buen sabor cobra vida en cada plato de pollo asado, una divina experiencia
+                        que todo amante de la cocina debería experimentar.” <br><br/>
+                            <strong>-El Sol</strong>
+                    </p>
+                </div> 
+            </div>
+            <div class="opinion">
+                <div>
+                    <img src="src/img/estrellas.png" class = "imagen-opinion">
+                </div>
+                <div class="texto-opinion">
+                    <p>
+                        “La sazón perfectamente equilibrada de sus pollos asados es simplemente irresistible, haciendo que cada
+                         visita sea una deliciosa aventura para los amantes de la comida." <br><br/>
+                            <strong>-El República</strong>
+                    </p>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+
+    <script src="build/js/app.js"></script>
 </body>

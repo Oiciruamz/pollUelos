@@ -24,12 +24,12 @@
 
 @mixin boton($bgColor, $display){
     background-color: $bgColor;
-    color: $blanco;
+    color: $negro;
     font-weight: $bold;
     text-decoration: none;
     padding: 1rem 3rem;
+    width: 70%;
     text-align: center;
-    margin-top: calc($separacion/2);
     display: $display;
     border: none;
 
