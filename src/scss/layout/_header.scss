@@ -32,7 +32,7 @@
         flex-direction: row;
     }
     align-items: center;
-    width: 65%;
+    width: 90%;
     a{
         font-size: 1.4rem;
         padding: 4px;
@@ -54,6 +54,7 @@
     justify-content: space-evenly;
     align-items: center;
     @include tablet {
+        padding-bottom: 0rem;
         flex-direction: row;
     }
     .icono{

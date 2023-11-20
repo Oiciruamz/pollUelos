@@ -1,0 +1,103 @@
+.banner{
+    width: 100%;
+    height: 13vh;
+    @include tablet {
+        eight: 20vh;
+    }
+    background-image: url(../../src/img/banner.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.centrado{
+    font-family: $fuente_principal;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+
+    .selecion{
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+        @include tablet {
+            justify-content: center;
+        }
+        a{
+            color: $negro;
+            font-weight: $bold;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            @include tablet {
+                font-size: 2.5rem;
+            }
+            width: 20%;
+            text-decoration: none;
+            &.rojo{
+                color: $rojo;
+            }
+        }
+    }
+
+}
+
+.contenedor-anuncios{
+        @include grid(2, 2rem);
+
+        @include telefono{
+            @include grid(2, 2rem);
+            grid-template-columns: auto;
+        }
+
+        justify-items: center;
+        padding-top: 1rem;
+        width: 100%;
+
+        @include tablet {
+            padding-top: 2rem;
+            @include grid(3, 2rem);
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+img,
+picture {
+    width: 100%;
+    display: block;
+}
+
+
+.anuncio {
+    background-color: lighten($gris, 40);
+    border: 2px solid darken($gris, 20);
+    margin-bottom: 2rem;
+    width: 50%;
+    @include tablet {
+        width: 80%;
+    }
+
+    .contenido-anuncio{
+        padding: 1rem;
+    }
+
+    h3, p{
+        margin: 0;
+    }
+
+    a{
+        text-decoration: none;
+
+    }
+
+}
+
+.precio{
+    color: $amarillo;
+    font-weight: $bold;
+    font-size: 3rem;
+}
+
+
+
