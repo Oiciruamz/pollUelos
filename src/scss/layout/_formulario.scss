@@ -16,7 +16,11 @@ label{
 
 input:not([type="submit"]), textarea, select{
     padding: 1rem;
-    width: 100%;
+    width: 94%;
+    @include tablet {
+        width: 99%;
+        padding: 1rem;
+    }
     background-color: $blanco;
     border: 1px solid gray;
     border-radius: 1rem;
@@ -32,9 +36,9 @@ input:not([type="submit"]), textarea, select{
     }
     margin-right: 10px; /* Ajusta el margen según tus preferencias */
     .boton-verde{
-        margin-left:  5rem;
+        margin-left:  20%;
         @include tablet {
-            margin-left:  30rem;
+            margin-left:  75%;
         }
         @include boton($amarillo, block);
     }
@@ -42,7 +46,10 @@ input:not([type="submit"]), textarea, select{
 
 textarea{
     height: 10rem;
-    width: 95%;
+    width: 90%;
+    @include tablet {
+        width: 96%;
+    }
 }
 
 }

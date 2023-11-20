@@ -365,13 +365,25 @@ template {
 
 .header {
   background-color: #fed313;
-  height: 6rem;
+  height: 20rem;
+}
+@media (min-width: 1023px) {
+  .header {
+    height: 6rem;
+  }
 }
 .header .contenido-header {
   display: flex;
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1023px) {
+  .header .contenido-header {
+    flex-direction: row;
+  }
 }
 .header .contenido-header a {
   font-family: "Lato", sans-serif;
@@ -382,23 +394,41 @@ template {
 .navegacion {
   display: flex;
   height: auto;
+  flex-direction: column;
   align-items: center;
   width: 65%;
 }
+@media (min-width: 1023px) {
+  .navegacion {
+    flex-direction: row;
+  }
+}
 .navegacion a {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  padding: 4px;
   display: block;
   width: 100%;
   color: #0D0D0D;
   text-align: center;
+}
+@media (min-width: 1023px) {
+  .navegacion a {
+    font-size: 1.6rem;
+  }
 }
 
 .iconos {
   display: flex;
   width: 28%;
   height: auto;
+  padding-bottom: 1rem;
   justify-content: space-evenly;
   align-items: center;
+}
+@media (min-width: 1023px) {
+  .iconos {
+    flex-direction: row;
+  }
 }
 .iconos .icono {
   width: 100%;
@@ -477,11 +507,17 @@ template {
 }
 .formulario input:not([type=submit]), .formulario textarea, .formulario select {
   padding: 1rem;
-  width: 100%;
+  width: 94%;
   background-color: white;
   border: 1px solid gray;
   border-radius: 1rem;
   margin-bottom: 2rem;
+}
+@media (min-width: 1023px) {
+  .formulario input:not([type=submit]), .formulario textarea, .formulario select {
+    width: 99%;
+    padding: 1rem;
+  }
 }
 .formulario .campo {
   padding-left: 2rem;
@@ -495,7 +531,7 @@ template {
   }
 }
 .formulario .campo .boton-verde {
-  margin-left: 5rem;
+  margin-left: 20%;
   background-color: #fed313;
   color: #0D0D0D;
   font-weight: 700;
@@ -508,7 +544,7 @@ template {
 }
 @media (min-width: 1023px) {
   .formulario .campo .boton-verde {
-    margin-left: 30rem;
+    margin-left: 75%;
   }
 }
 .formulario .campo .boton-verde:hover {
@@ -517,7 +553,12 @@ template {
 }
 .formulario textarea {
   height: 10rem;
-  width: 95%;
+  width: 90%;
+}
+@media (min-width: 1023px) {
+  .formulario textarea {
+    width: 96%;
+  }
 }
 
 .contenedor {
