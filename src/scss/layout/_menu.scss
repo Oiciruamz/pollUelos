@@ -44,7 +44,7 @@
 }
 
 .contenedor-anuncios{
-        @include grid(2, 2rem);
+        @include grid(1, 2rem);
 
         @include telefono{
             @include grid(2, 2rem);
@@ -57,32 +57,41 @@
 
         @include tablet {
             padding-top: 2rem;
-            @include grid(3, 2rem);
-            grid-template-columns: repeat(3, 1fr);
+            @include grid(2, 2rem);
+            grid-template-columns: repeat(2, 2fr);
         }
     }
 
-img,
-picture {
+img{
+    box-shadow: inset;
     width: 100%;
     display: block;
 }
 
 
 .anuncio {
-    background-color: lighten($gris, 40);
-    border: 2px solid darken($gris, 20);
-    margin-bottom: 2rem;
+    display: flex;
     width: 50%;
-    @include tablet {
-        width: 80%;
-    }
+    flex-direction: column;
+    align-items: center;
+    font-family: $fuente_principal;
+    background-color: #F9F9F9;
 
     .contenido-anuncio{
-        padding: 1rem;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    h3{
+        font-size: 1.8rem;
     }
 
     h3, p{
+        width: 100%;
+        text-align: center;
+        padding: 5px;
         margin: 0;
     }
 
@@ -94,10 +103,39 @@ picture {
 }
 
 .precio{
-    color: $amarillo;
+    color: rgb(65, 67, 65);
     font-weight: $bold;
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
+
+.boton-carrito{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    border-radius: 20rem;
+    background-color: $amarillo;
+    padding: .7rem;
+    width: 8rem;
+    height: auto;
+
+    img{
+        width: 3rem;
+    }
+
+    @include tablet {
+        width: 10rem;
+        padding: 1rem;
+        height: auto;
+
+        img{
+            width: 3.8rem;
+        }
+    }
+
+    &:hover{
+        background-color: darken($amarillo, 8);
+    }
+}
 
 

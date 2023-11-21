@@ -18,11 +18,11 @@
     @include grid(1, 3rem);
     justify-items: center;
     @include tablet {
-        @include grid(3, 2rem);
+        @include grid(3, 3rem);
     }
     
     .opinion{
-        @include grid (1, 0rem);
+        @include grid (1, 2rem);
         justify-items: center;
         margin-top: 1rem;
         width: 100%;

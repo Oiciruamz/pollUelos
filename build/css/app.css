@@ -458,17 +458,20 @@ template {
   width: 100%;
   display: grid;
   gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
   justify-items: center;
 }
 @media (min-width: 1023px) {
   .opinion-contenedor {
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .opinion-contenedor .opinion {
   display: grid;
-  gap: 0rem;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
   justify-items: center;
   margin-top: 1rem;
   width: 100%;
@@ -635,6 +638,7 @@ template {
 .contenedor-anuncios {
   display: grid;
   gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
   justify-items: center;
   padding-top: 1rem;
   width: 100%;
@@ -643,6 +647,7 @@ template {
   .contenedor-anuncios {
     display: grid;
     gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-columns: auto;
   }
 }
@@ -651,31 +656,38 @@ template {
     padding-top: 2rem;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 2fr);
   }
 }
 
-img,
-picture {
+img {
+  box-shadow: inset;
   width: 100%;
   display: block;
 }
 
 .anuncio {
-  background-color: white;
-  border: 2px solid #c5c5c5;
-  margin-bottom: 2rem;
+  display: flex;
   width: 50%;
-}
-@media (min-width: 1023px) {
-  .anuncio {
-    width: 80%;
-  }
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  background-color: #F9F9F9;
 }
 .anuncio .contenido-anuncio {
-  padding: 1rem;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.anuncio h3 {
+  font-size: 1.8rem;
 }
 .anuncio h3, .anuncio p {
+  width: 100%;
+  text-align: center;
+  padding: 5px;
   margin: 0;
 }
 .anuncio a {
@@ -683,7 +695,34 @@ picture {
 }
 
 .precio {
-  color: #fed313;
+  color: rgb(65, 67, 65);
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 1.5rem;
+}
+
+.boton-carrito {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  border-radius: 20rem;
+  background-color: #fed313;
+  padding: 0.7rem;
+  width: 8rem;
+  height: auto;
+}
+.boton-carrito img {
+  width: 3rem;
+}
+@media (min-width: 1023px) {
+  .boton-carrito {
+    width: 10rem;
+    padding: 1rem;
+    height: auto;
+  }
+  .boton-carrito img {
+    width: 3.8rem;
+  }
+}
+.boton-carrito:hover {
+  background-color: #e7bd01;
 }
