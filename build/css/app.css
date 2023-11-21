@@ -698,12 +698,18 @@ img {
 
 .anuncio {
   display: flex;
-  width: 50%;
+  width: 90%;
   flex-direction: column;
   align-items: center;
   font-family: "Lato", sans-serif;
   background-color: #F9F9F9;
   height: 30rem;
+  margin-bottom: 3rem;
+}
+@media (min-width: 1023px) {
+  .anuncio {
+    margin-bottom: 2rem;
+  }
 }
 .anuncio .contenido-anuncio {
   margin-top: 5px;
@@ -757,21 +763,99 @@ img {
   background-color: #e7bd01;
 }
 
-.idk {
-  position: absolute;
-  width: 1001.5px;
-  height: 788px;
-  left: 3.5px;
-  top: 111px;
+.main-nosotros {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  display: flex;
 }
 
-.pk {
-  position: absolute;
-  width: 1001.5px;
-  height: 788px;
-  left: 3.5px;
-  top: 111px;
-  background: #F5C519;
-  mix-blend-mode: normal;
-  border: 1px solid #000000;
+.contenido-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  height: 87vh;
+  width: 45%;
+  background-color: rgb(242, 183, 66);
+}
+.contenido-nosotros h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+@media (min-width: 1023px) {
+  .contenido-nosotros h1 {
+    font-size: 3.5rem;
+  }
+}
+.contenido-nosotros p {
+  width: 70%;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.nosotros-img {
+  background-color: rgb(242, 183, 66);
+  width: 55%;
+}
+.nosotros-img .servidos {
+  width: 100%;
+  height: 87vh;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 200%;
+}
+
+.texto-nosotros {
+  display: flex;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.texto-nosotros p {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  margin: 0;
+  padding: 0;
+  width: 75%;
+  text-align: justify;
+}
+@media (min-width: 1023px) {
+  .texto-nosotros p {
+    font-size: 1.5rem;
+  }
+}
+
+.cuadro-rojo {
+  display: flex;
+  padding: 1.5rem;
+  width: 65%;
+  height: 12%;
+  background-color: #BC2E23;
+}
+.cuadro-rojo .mision h2 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2rem;
+}
+@media (min-width: 1023px) {
+  .cuadro-rojo .mision h2 {
+    font-size: 1.5;
+  }
+}
+.cuadro-rojo .mision p {
+  width: 100%;
+  font-size: 0.7rem;
+  color: white;
+  line-height: 1rem;
+  text-align: justify;
+}
+@media (min-width: 1023px) {
+  .cuadro-rojo .mision p {
+    font-size: 0.9rem;
+    line-height: 1rem;
+  }
 }

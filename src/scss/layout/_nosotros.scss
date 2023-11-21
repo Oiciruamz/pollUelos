@@ -1,23 +1,103 @@
-.idk{
-    position: absolute;
-width: 1001.5px;
-height: 788px;
-left: 3.5px;
-top: 111px;
+
+
+.main-nosotros{
+    font-family: $fuente_principal;
+    width: 100%;
+    display: flex;
+}
+.contenido-nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    height: 87vh;
+    width: 45%;
+    background-color: rgba(242, 183, 66);
+    h1{
+        text-align: center;
+        font-size: 2.5rem;
+        color: $blanco;
+        @include tablet {
+            font-size: 3.5rem;
+        }
+    }
+
+    p{
+        width: 70%;
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+}
+
+.nosotros-img{
+    background-color: rgba(242, 183, 66);
+    width: 55%;
+    .servidos{
+        
+        width: 100%;
+        height: 87vh;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 200%;
+    }
+}
+
+.texto-nosotros{
+    display: flex;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+         
+        p{
+            font-size: .8rem;
+            line-height: 1rem;
+            margin: 0;
+            padding: 0;
+            width: 75%;
+            text-align: justify;
+
+            @include tablet {
+                font-size: 1.5rem;
+            }
+        }
+}
+
+.cuadro-rojo{
+    display: flex;
+    padding: 1.5rem;
+    width: 65%;
+    height: 12%;
+    background-color: #BC2E23;
+
+    .mision{
+
+        h2{
+            color: $blanco;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 1.2rem;
+
+            @include tablet {
+                font-size: 1.5;
+            }
+        }
+        
+        p{
+            width: 100%;
+            font-size: .7rem;
+            color: $blanco;
+            line-height: 1rem;
+            text-align: justify;
+
+            @include tablet {
+                font-size: .9rem;
+                line-height: 1rem;
+            }
+        }
+    }
+
 }
 
 
-
-.pk{
-    position: absolute;
-width: 1001.5px;
-height: 788px;
-left: 3.5px;
-top: 111px;
-
-background: #F5C519;
-mix-blend-mode: normal;
-border: 1px solid #000000;
-
-
-}
