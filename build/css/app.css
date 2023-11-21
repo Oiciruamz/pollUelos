@@ -365,7 +365,7 @@ template {
 
 .header {
   background-color: #fed313;
-  height: 20rem;
+  height: 15rem;
 }
 @media (min-width: 1023px) {
   .header {
@@ -392,6 +392,7 @@ template {
 }
 
 .navegacion {
+  visibility: hidden;
   display: flex;
   height: auto;
   flex-direction: column;
@@ -400,11 +401,12 @@ template {
 }
 @media (min-width: 1023px) {
   .navegacion {
+    visibility: visible;
     flex-direction: row;
   }
 }
 .navegacion a {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding: 4px;
   display: block;
   width: 100%;
@@ -421,6 +423,7 @@ template {
   display: flex;
   width: 28%;
   height: auto;
+  margin-top: 0.6rem;
   padding-bottom: 1rem;
   justify-content: space-evenly;
   align-items: center;
@@ -432,12 +435,38 @@ template {
   }
 }
 .iconos .icono {
-  width: 100%;
   width: 2.5rem;
 }
 
 .mobile-menu {
-  visibility: hidden;
+  visibility: visible;
+}
+.mobile-menu .icono-barras {
+  width: 3rem;
+}
+@media (min-width: 1023px) {
+  .mobile-menu {
+    visibility: hidden;
+  }
+}
+
+.mostrar {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+.alerta {
+  z-index: 1;
+  padding: 0.5rem;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+.alerta.error {
+  background-color: rgb(190, 10, 10);
 }
 
 .contenedor-prensa {
@@ -674,6 +703,7 @@ img {
   align-items: center;
   font-family: "Lato", sans-serif;
   background-color: #F9F9F9;
+  height: 30rem;
 }
 .anuncio .contenido-anuncio {
   margin-top: 5px;
@@ -725,4 +755,23 @@ img {
 }
 .boton-carrito:hover {
   background-color: #e7bd01;
+}
+
+.idk {
+  position: absolute;
+  width: 1001.5px;
+  height: 788px;
+  left: 3.5px;
+  top: 111px;
+}
+
+.pk {
+  position: absolute;
+  width: 1001.5px;
+  height: 788px;
+  left: 3.5px;
+  top: 111px;
+  background: #F5C519;
+  mix-blend-mode: normal;
+  border: 1px solid #000000;
 }
