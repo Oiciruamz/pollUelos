@@ -4,33 +4,29 @@
     $db = conectarDB();
 
     $errores = [];
-    $nombre = '';
     $email = '';
-    $mensaje = '';
-    $fecha = '';
+    $pass = '';
+  
 
 
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-
-
-        $nombre = mysqli_real_escape_string( $db, $_POST['nombre'] );
-        $email = mysqli_real_escape_string($db, $_POST['email']);
-        $mensaje = mysqli_real_escape_string($db, $_POST['mensaje']);
-        $fecha = mysqli_real_escape_string($db, date('Y/m/d'));
-
-        if(!$nombre){
-            $errores[] = "Debes añadir un nombre";
-        }       
+        $email = mysqli_real_escape_string($db, $_POST['correo']);
+        $pass = mysqli_real_escape_string($db, $_POST['contrasena']);
+      
+   
         if(!$email){
             $errores[] = "Debes añadir un email";
          }
-        if(!$mensaje){
-        $errores[] = "Debes añadir un mensaje";
-        }       
-   
+        if(!$pass){
+        $errores[] = "Debes añadir una contraseña";
+        }
+
+        
+    
         if(empty($errores)){
+            exit;
             $query = "INSERT INTO contacto (Nombre, Correo_Electronico, Comentario, Fecha) VALUES ('{$nombre}', '{$email}', '{$mensaje}', '{$fecha}');";
             $resultado = mysqli_query($db, $query);
 
@@ -51,10 +47,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/css/app.css">
-    <title>Polluelos</title>
+    <title>Direccion de Envío</title>
 </head>
 
-<body class ="background">
+<body>
 
     <header class = "header">
         <div class = "contenido-header">
@@ -64,10 +60,10 @@
             </div>
     
             <nav class = "navegacion">
-                <a href="index.php">Inicio</a>
-                <a href="menuP.php">Menú</a>
+                <a href="index.html">Inicio</a>
+                <a href="menuP.html">Menú</a>
                 <a href="contacto.php">Contacto</a>
-                <a href="nosotros.php">Nosotros</a>
+                <a href="nosotros.html">Nosotros</a>
             </nav>
     
     
@@ -79,41 +75,43 @@
                     <img src="src/img/usuario.png" alt="" class = "icono">
                 </a>
             </div>
+    
 
         </div>
     </header>
 
-    <main class = "contenedor seccion">
-        
-        <h1>Contacto</h1>
 
+
+    <main class ="background-registro seccion">
+        
         <?php foreach($errores as $error): ?>
             <div class="alerta error">
                      <?php echo $error;?>
             </div>
          <?php endforeach; ?>
 
-        <form class="formulario" method="POST" >
-            <fieldset>
-                <h2>Si tienes alguna duda ¡Escríbenos!</h2>
+        <form  method="POST"  class = "registro-form">
+            <fieldset class = "ok">
 
-                <div class="campo">
-                    <label for="nombre" class ="etiqueta">Nombre</label>
-                    <input type="text" placeholder="Tu Nombre" name = "nombre" id="nombre"
-                        value = "<?php echo $nombre; ?>">
-                </div>
-                
-                <div class="campo">
-                    <label for="email" class ="etiqueta">E-mail</label>
-                    <input type="email" placeholder="Email" name = "email" id="email" value = "<?php echo $email; ?>" >
-                </div>
+            <h1>Direccion de Envío</h1>
 
-                <label for="mensaje" class ="etiqueta" >Mensaje:</label>
-                <textarea id="mensaje" name="mensaje"><?php echo $mensaje ?></textarea>
-                
-                <div class = "campo">
-                    <input type="submit" value="Enviar" class="boton-verde">
-                </div>
+            <input type="text" placeholder="Calle" name = "calle" id="calle"
+            value = "<?php echo $nombre; ?>">
+
+            <input type="text" placeholder="Número de Casa" name = "numCasa" id="numCasa"
+            value = "<?php echo $nombre; ?>">
+
+            <input type="text" placeholder="Colonia" name = "colonia" id="colonia"
+            value = "<?php echo $nombre; ?>">            
+
+            <input type="text" placeholder="Código Postal" name = "cp" id="cp"
+            value = "<?php echo $nombre; ?>">  
+
+            <input type="text" placeholder="Señas Particulares del Domicilio" name = "senas" id="senas"
+            value = "<?php echo $nombre; ?>">
+            
+            <input type="submit" value = "Agregar Dirección" class = "boton-amarillo">
+
             </fieldset>
 
         </form>

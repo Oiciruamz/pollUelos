@@ -1,0 +1,88 @@
+.perfil-Usuario{
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 87vh;
+    font-family: $fuente-principal;
+}
+
+.opciones-usuario{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 25%;
+    border: 2px solid $negro;
+    border-top: none;
+    border-left: none;
+    box-sizing: border-box;
+}
+
+.utilidades-usuario{
+    text-align: center;
+    flex: 1;
+    box-sizing: border-box;
+
+    img{
+        border: 1px solid $negro;
+        display: block;
+        margin: 0 auto;
+        margin-top: 1rem;
+        border-radius: 50%;
+        padding: 40px;
+        width: 230px;
+        height: 200px;
+    }
+
+}
+
+.contenedor-opciones{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Usuario{
+    border-bottom: 1px solid $negro;
+
+}
+
+
+.opcion1{
+    border-bottom: 1px solid $negro;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 0px dimgray;
+    width: 100%;
+    margin-bottom: 20px; 
+
+    &.aqui{
+        background-color: rgba(105, 105, 105, 0.145);
+    }
+
+    a{
+        text-decoration: none;
+        color: $negro;
+    }
+
+
+}
+
+.u-usuario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    .opcion2{
+        border-bottom: 1px solid $negro;
+        border-radius: 5px;
+        box-shadow: 1px 1px 0 2px dimgray;
+        width: 50%;
+        margin-bottom: 20px; 
+    
+
+        a{
+            text-decoration: none;
+            color: $negro;
+        }
+    }
+}
+

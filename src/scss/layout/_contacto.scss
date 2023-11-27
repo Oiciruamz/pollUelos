@@ -10,3 +10,92 @@
         background-color: $rojo;
     }
 }
+
+
+.formulario{
+    font-family: $fuente_principal;
+    color: $blanco;
+    background-color: rgba(132, 130, 130, 0.701);
+h2{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.etiqueta{
+    font-weight: $bold;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    display: block;
+}
+
+input:not([type="submit"]), textarea, select{
+    padding: 1rem;
+    width: 94%;
+    @include tablet {
+        width: 99%;
+        padding: 1rem;
+    }
+    background-color: $blanco;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+fieldset{
+    margin:0;
+    border: none;
+}
+
+.campo {
+    padding-left: 2rem;
+    display: inline-block;
+    width: 80%;
+    @include tablet {
+        width: 45%;
+    }
+    margin-right: 10px; 
+    .boton-verde{
+        margin-left:  20%;
+        @include tablet {
+            margin-left:  75%;
+        }
+        @include boton($amarillo, block);
+    }
+}
+
+textarea{
+    height: 10rem;
+    width: 90%;
+    @include tablet {
+        width: 96%;
+    }
+}
+
+}
+
+.contenedor {
+    font-family: $fuente_principal;
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+.seccion {
+    margin-top: calc($separacion / 2);
+    margin-bottom: calc($separacion / 2);
+}
+
+.background{
+    color: $blanco;
+    background-image: url(../img/asado.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+    h1{
+        font-size: 3rem;
+    }
+}
+
+
+

@@ -21,12 +21,6 @@
             font-size: 3.5rem;
         }
     }
-
-    p{
-        width: 70%;
-        font-size: 1.1rem;
-        text-align: justify;
-    }
 }
 
 .nosotros-img{
@@ -59,7 +53,7 @@
 
             @include tablet {
                 line-height: 1.5rem;
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
 }

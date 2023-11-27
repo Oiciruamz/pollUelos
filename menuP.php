@@ -18,10 +18,10 @@
             </div>
     
             <nav class = "navegacion">
-                <a href="index.html">Inicio</a>
-                <a href="menuP.html">Menú</a>
+                <a href="index.php">Inicio</a>
+                <a href="menuP.php">Menú</a>
                 <a href="contacto.php">Contacto</a>
-                <a href="nosotros.html">Nosotros</a>
+                <a href="nosotros.php">Nosotros</a>
             </nav>
     
     
@@ -29,7 +29,7 @@
                 <a href="#">
                     <img src="src/img/carro.png" alt="" class = "icono">
                 </a>
-                <a href="#">
+                <a href="login.php">
                     <img src="src/img/usuario.png" alt="" class = "icono">
                 </a>
             </div>
@@ -42,8 +42,8 @@
 
     <div class="centrado ">
         <nav class="selecion">
-            <a href="menuP.html" class = "rojo">Productos</a>
-            <a href="menuC.html">Combos</a>
+            <a href="menuP.php" class = "rojo">Productos</a>
+            <a href="menuC.php">Combos</a>
         </nav>
     </div>
 

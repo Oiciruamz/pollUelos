@@ -1,0 +1,120 @@
+
+.background-registro{
+    font-family: $fuente_principal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/asado.webp");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 120vh;
+    
+}
+
+.registro-form{
+    text-align: center;
+    height: 51vh;
+    padding-top: 2rem;
+    color:$negro;
+    display: flex;
+    flex-direction: column;
+   
+    @include telefono {
+        width: 70vh;
+    }
+
+    input:not([type="submit"]){
+        padding: .5rem;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        width: 90%;
+
+        @include telefono {
+            padding: .8rem;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+            width: 85%;            
+        }
+    }
+
+}
+
+.ok{
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    background-color: #d9d9d9d2;
+
+    a{
+        text-decoration: none;
+        color: $negro;
+
+        &:hover{
+            color: purple;
+            font-weight: $bold;
+        }
+
+    }
+
+
+
+    @include telefono {
+        padding: 4rem;
+        padding-top: 2rem;
+    }
+}
+
+.boton-amarillo{
+        background-color: $amarillo;
+        color: $negro;
+        font-weight: $bold;
+        text-decoration: none;
+        padding: 1rem 3rem;
+        text-align: center;
+        display: block;
+        border: none;
+        margin-top: 1rem;
+
+        @include telefono {
+            width: 70%;   
+        }
+        &:hover{
+            background-color: darken($amarillo, 5);
+            cursor: pointer;
+        }
+}
+
+
+.forma-login{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    @include telefono {
+        flex-direction: row;
+    }
+}
+
+
+.iconosPago{
+    display: flex;
+    width: 90%;
+
+    img{
+        margin-left: 10px;
+        width: 2.5rem;
+    }
+}

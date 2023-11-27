@@ -74,7 +74,10 @@
     .icono-barras{
         width: 3rem;
     }
-    
+
+    img{
+        width: 2rem;
+    }
     @include tablet {
         visibility: hidden;
     }
@@ -85,5 +88,4 @@
     opacity: 1;
     height: auto;
 }
-
 
