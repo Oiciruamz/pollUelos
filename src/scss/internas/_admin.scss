@@ -1,0 +1,67 @@
+.productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: start;
+    width: 100%;
+}
+
+.crear{
+    margin: 10px;
+    border: 1px solid $negro;
+    padding: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: $negro;
+    font-weight: 900;
+    background-color: rgb(255, 224, 113);
+
+    &:hover{
+        background-color: rgb(207, 188, 127);
+    }
+
+}
+
+
+.productos-admin{
+
+    width: 85%;
+    @include tablet {
+        width: 80%;
+    }
+
+    input{
+        background-color: rgb(241, 101, 101);
+        border: 1px solid black;
+        width: 100px;
+        border-radius: 2px;
+        margin-bottom: 25px;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(203, 86, 86);
+        }
+    }
+
+    a{
+        font-size: 14.5px;
+        border: 1px solid $negro;
+        padding-left: 18px;
+        padding-right: 18px;
+        border-radius: 2px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+        color: $negro;
+        background-color: rgb(138, 236, 138);
+
+        &:hover{
+            background-color: rgb(127, 207, 127);
+        }
+
+    }
+
+    td{
+        text-align: center;
+    }
+}

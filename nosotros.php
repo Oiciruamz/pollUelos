@@ -1,42 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    require 'includes/funciones.php';
+    require '../POLLUELOS/includes/config/database.php';
+    $db = conectarDB();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>POLLUELOS</title>
-</head>
+    $errores = [];
+    $email = '';
+    $pass = '';
+  
 
-<body>
 
-    <header class = "header">
-        <div class = "contenido-header">
-
-            <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
     
-            <nav class = "navegacion">
-                <a href="index.php">Inicio</a>
-                <a href="menuP.php">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.php">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
-    
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        </div>
-    </header>
+        $email = mysqli_real_escape_string($db, $_POST['correo']);
+        $pass = mysqli_real_escape_string($db, $_POST['contrasena']);
+      
+   
+        if(!$email){
+            $errores[] = "Debes añadir un email";
+         }
+        if(!$pass){
+        $errores[] = "Debes añadir una contraseña";
+        }
+
+        
+    
+        if(empty($errores)){
+            exit;
+            $query = "INSERT INTO contacto (Nombre, Correo_Electronico, Comentario, Fecha) VALUES ('{$nombre}', '{$email}', '{$mensaje}', '{$fecha}');";
+            $resultado = mysqli_query($db, $query);
+
+             if($resultado){
+                        header("Location: /POLLUELOS/index.html");
+                }
+        }
+    }
+
+    incluirTemplate('header');
+   
+?>
 
 <main class="main-nosotros">
 

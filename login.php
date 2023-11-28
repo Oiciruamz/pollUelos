@@ -2,6 +2,7 @@
 
     require 'includes/funciones.php';
 
+
     // Importar la conexión
     require '../POLLUELOS/includes/config/database.php';
     $db = conectarDB();
@@ -50,12 +51,12 @@
 
                     //Usuario autenticado
 
-                  //  session_start();
+                    session_start();
 
                     //Llenar arreglo
 
-                  //  $_SESSION['usuario'] = $usuario['email'];
-                  //  $_SESSION['login'] = true;
+                  $_SESSION['idUsuario'] = $usuario['idUsuarios'];
+                  $_SESSION['rol'] = intval($usuario['Rol']);
 
                    /* echo "<pre>";
                     var_dump($_SESSION);
@@ -77,7 +78,7 @@
 
 
 
-    incluirTemplate('header');
+    incluirTemplate('header', $inicio = true);
    
 ?>
 

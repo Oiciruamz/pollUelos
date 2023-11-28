@@ -1,42 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    // Importar la conexión
+    require 'includes/config/database.php';
+    require 'includes/funciones.php';
+    session_start();
+   
+    $db = conectarDB();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Polluelos</title>
-</head>
+    $Usuario = $_SESSION['idUsuario'];
 
-<body>
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    <header class = "header">
-        <div class = "contenido-header">
+        $Combo = $_POST['idcombo'];
 
-            <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
-    
-            <nav class = "navegacion">
-                <a href="index.php">Inicio</a>
-                <a href="menuP.php">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.php">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
-    
+        $consulta = ("SELECT * FROM carrito_productos WHERE idUsuario = $Usuario AND Producto = $Combo");
+        $result = mysqli_query($db, $consulta);
 
-        </div>
-    </header>
+        if (mysqli_num_rows($result) > 0) {
+            // El idUsuario ya existe en el carrito
+            // El idUsuario ya existe en el carrito
+            $fila = mysqli_fetch_assoc($result);
+            $Cantidad = $fila['Cantidad'];
+            $Producto = $fila['Producto'];
+            $Cantidad++;
+            $query = "UPDATE carrito_productos SET cantidad = $Cantidad WHERE idUsuario = $Usuario AND Producto = $Producto";
+            $result = mysqli_query($db, $query);
+        } else {
+            // El idUsuario no existe en el carrito
+            $Combo = $_POST['idcombo'];
+            $Cantidad = 1;
+            $query = "INSERT INTO carrito_productos (Producto, idUsuario, cantidad) VALUES ($Combo, $Usuario, $Cantidad)";
+            $resultado = mysqli_query($db, $query);
+        }
+        
+    }
+
+
+    // Consultar
+    $query = "SELECT * FROM producto";
+
+    // Obtener resultado
+    $resultado = mysqli_query($db, $query);
+
+    incluirTemplate('header');
+?>
 
     <div class = "banner"></div>
 
@@ -50,36 +56,31 @@
 
     <div class="contenedor-anuncios">
 
+    <?php 
+
+        while($producto = mysqli_fetch_assoc($resultado)) :
+
+    ?>
             <div class="anuncio">
+            <form method = "POST">
                 <picture>
-                    <img loading = "lazy" src="src/img/polloPlato.png" alt="anuncio" loading="lazy">
+                    <img loading = "lazy" src="imagenesProductos/<?php echo $producto['Imagen']; ?>" alt="anuncio" loading="lazy" class = "img-small">
                 </picture>
                 <div class="contenido-anuncio">
-                    <p class="precio">$140</p>
-                    <h3>Un pollo asado</h3>
-                    <p>Delicioso Pollo Asado</p>
+                    <p class="precio">$<?php echo $producto['Precio']?></p>
+                    <h3><?php echo $producto['Nombre'];?></h3>
+                    <p><?php echo $producto['Descripción'];?></p>
     
                         
-                    <a href="anuncio.php" class="boton-carrito">
-                        <img src="src/img/alcarrito.svg"  alt="">
-                    </a>
+                    <input type="hidden" name="idcombo" value="<?php echo $producto['idProductos']; ?>">   
+                    <button type="submit" class="boton-carrito" name="agregarCarrito">
+                        <img src="src/img/alcarrito.svg">
+                    </button>
                 </div>
+            </form>  
             </div>
 
-            <div class="anuncio">
-                <picture>
-                    <img loading = "lazy" src="src/img/medioPollo.png" alt="anuncio" loading="lazy">
-                </picture>
-                <div class="contenido-anuncio">
-                    <p class="precio">$100</p>
-                    <h3>Medio Pollo</h3>
-                    <p>Medio Pollo Asado para Compartir</p>
-
-                    <a href="" class="boton-carrito">
-                        <img src="src/img/alcarrito.svg"  alt="">
-                    </a>
-                </div>
-            </div>
+    <?php endwhile; ?>
 
     </div>
     

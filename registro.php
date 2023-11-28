@@ -1,7 +1,9 @@
 <?php
     // Importar la conexión
+    require 'includes/funciones.php';
     require '../POLLUELOS/includes/config/database.php';
     $db = conectarDB();
+
 
     $errores = [];
     $nombre = '';
@@ -40,69 +42,36 @@
             $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
             $rol = 2;
         }      
-        
+        if (empty($errores)) {
+            
+            $consulta = "SELECT * FROM usuarios WHERE Email = '{$email}'";
+            $result = mysqli_query($db, $consulta);
     
-        if(empty($errores)){
+            if ($result->num_rows > 0) {
+                $errores[] = "Ya existe un usuario registrado con este correo electrónico";
+            } else {
+               
+                $query = "INSERT INTO usuarios (Rol, Nombre, Apellido, Email, Contraseña) VALUES ($rol, '{$nombre}', '{$apellido}', '{$email}', '{$passwordHash}')";
+                $resultado = mysqli_query($db, $query);
+    
+                if ($resultado) {
 
-            $query = "INSERT INTO usuarios (Rol, Nombre, Apellido, Email, Contraseña) VALUES ($rol, '{$nombre}', '{$apellido}', '{$email}', '{$passwordHash}')";
+                    $idUsuario = mysqli_insert_id($db);
 
+                    // Guarda el idUsuario en la sesión
+                    session_start();
+                    $_SESSION['idUsuario'] = $idUsuario;
+                    $_SESSION['rol'] = $rol;
 
-            $resultado = mysqli_query($db, $query);
-
-             if($resultado){
-                        header("Location: /POLLUELOS/index.php");
-                } else{
-                    echo "noo";
+                    header("Location: /POLLUELOS/direnvio.php");
                 }
+            }
         }
     }
 
-   
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Registro</title>
-</head>
-
-<body>
-
-    <header class = "header">
-        <div class = "contenido-header">
-
-             <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
+    incluirTemplate('header', $inicio = true);
+?>       
     
-            <nav class = "navegacion">
-                <a href="index.php">Inicio</a>
-                <a href="menuP.php">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.php">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
-    
-
-        </div>
-    </header>
-
-
-
     <main class ="background-registro seccion">
         
         <?php foreach($errores as $error): ?>

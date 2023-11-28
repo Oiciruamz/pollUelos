@@ -45,6 +45,8 @@
 
 }
 
+
+
 .contenedor-anuncios{
         @include grid(1, 2rem);
 
@@ -70,6 +72,10 @@ img{
     display: block;
 }
 
+.img-small{
+    width: 250px;
+    height: 200px;
+}
 
 .anuncio {
     display: flex;
@@ -80,8 +86,15 @@ img{
     background-color: #F9F9F9;
     height: 30rem;
     margin-bottom: 3rem;
+    box-shadow: 1px 1px 5px 0 dimgray;
     @include tablet {
         margin-bottom: 2rem;
+    }
+
+    picture{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .contenido-anuncio{

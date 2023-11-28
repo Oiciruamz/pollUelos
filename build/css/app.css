@@ -471,11 +471,16 @@ template {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 25%;
+  width: 35%;
   border: 2px solid #0D0D0D;
   border-top: none;
   border-left: none;
   box-sizing: border-box;
+}
+@media (min-width: 765px) {
+  .opciones-usuario {
+    width: 25%;
+  }
 }
 
 .utilidades-usuario {
@@ -490,8 +495,14 @@ template {
   margin-top: 1rem;
   border-radius: 50%;
   padding: 40px;
-  width: 230px;
-  height: 200px;
+  width: 100px;
+  height: 90px;
+}
+@media (min-width: 765px) {
+  .utilidades-usuario img {
+    width: 230px;
+    height: 200px;
+  }
 }
 
 .contenedor-opciones {
@@ -504,11 +515,12 @@ template {
 }
 
 .opcion1 {
+  border-top: 1px solid #0D0D0D;
   border-bottom: 1px solid #0D0D0D;
   border-radius: 5px;
   box-shadow: 1px 1px 0 0px dimgray;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .opcion1.aqui {
   background-color: rgba(105, 105, 105, 0.145);
@@ -539,7 +551,7 @@ template {
 .opciones-proceso {
   font-family: "Lato", sans-serif;
   width: 100%;
-  height: 75vh;
+  height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -547,13 +559,13 @@ template {
 }
 @media (min-width: 765px) {
   .opciones-proceso {
-    height: 85vh;
+    height: 120vh;
   }
 }
 @media (min-width: 1023px) {
   .opciones-proceso {
     width: 100%;
-    height: 90vh;
+    height: 120vh;
   }
 }
 
@@ -568,6 +580,11 @@ template {
   .dir-usuario {
     height: 13rem;
   }
+}
+.dir-usuario a {
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
 }
 .dir-usuario li {
   list-style: none;
@@ -601,6 +618,9 @@ template {
   font-size: 10px;
   background-color: #67ba44;
   cursor: pointer;
+}
+.dir-usuario .input-direccion a {
+  text-transform: none;
 }
 .dir-usuario .input-direccion:hover {
   background-color: #008b23;
@@ -716,6 +736,8 @@ td img {
 
 .total-price {
   display: flex;
+  width: 100%;
+  margin-top: 15px;
   justify-content: flex-end;
 }
 .total-price table {
@@ -728,14 +750,14 @@ td img {
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 8px;
 }
 .input-carrito .input {
   text-transform: uppercase;
   width: 100%;
-  height: 60px;
   border-radius: 6px;
   color: white;
-  font-size: 17px;
+  font-size: 12px;
   background-color: #67ba44;
   cursor: pointer;
 }
@@ -744,8 +766,8 @@ td img {
 }
 @media (min-width: 765px) {
   .input-carrito .input {
-    width: 80%;
-    height: 70px;
+    width: 100%;
+    height: 80px;
   }
 }
 
@@ -988,6 +1010,11 @@ img {
   display: block;
 }
 
+.img-small {
+  width: 250px;
+  height: 200px;
+}
+
 .anuncio {
   display: flex;
   width: 90%;
@@ -997,11 +1024,17 @@ img {
   background-color: #F9F9F9;
   height: 30rem;
   margin-bottom: 3rem;
+  box-shadow: 1px 1px 5px 0 dimgray;
 }
 @media (min-width: 1023px) {
   .anuncio {
     margin-bottom: 2rem;
   }
+}
+.anuncio picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .anuncio .contenido-anuncio {
   margin-top: 5px;
@@ -1159,7 +1192,7 @@ img {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 120vh;
+  height: 135vh;
 }
 
 .registro-form {
@@ -1260,4 +1293,77 @@ img {
 .iconosPago img {
   margin-left: 10px;
   width: 2.5rem;
+}
+
+.borrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Combo-crear {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: start;
+  width: 100%;
+}
+
+.crear {
+  margin: 10px;
+  border: 1px solid #0D0D0D;
+  padding: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #0D0D0D;
+  font-weight: 900;
+  background-color: rgb(255, 224, 113);
+}
+.crear:hover {
+  background-color: rgb(207, 188, 127);
+}
+
+.productos-admin {
+  width: 85%;
+}
+@media (min-width: 1023px) {
+  .productos-admin {
+    width: 80%;
+  }
+}
+.productos-admin input {
+  background-color: rgb(241, 101, 101);
+  border: 1px solid black;
+  width: 100px;
+  border-radius: 2px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.productos-admin input:hover {
+  background-color: rgb(203, 86, 86);
+}
+.productos-admin a {
+  font-size: 14.5px;
+  border: 1px solid #0D0D0D;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: #0D0D0D;
+  background-color: rgb(138, 236, 138);
+}
+.productos-admin a:hover {
+  background-color: rgb(127, 207, 127);
+}
+.productos-admin td {
+  text-align: center;
 }

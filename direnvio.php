@@ -1,7 +1,12 @@
 <?php
     // Importar la conexión
+    require 'includes/funciones.php';
+    session_start();
+
     require '../POLLUELOS/includes/config/database.php';
+
     $db = conectarDB();
+    $idUsuario = $_SESSION['idUsuario'] ?? '';
 
     $errores = [];
     $email = '';
@@ -12,73 +17,47 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        $email = mysqli_real_escape_string($db, $_POST['correo']);
-        $pass = mysqli_real_escape_string($db, $_POST['contrasena']);
+        $calle = mysqli_real_escape_string($db, $_POST['calle']);
+        $numCasa = mysqli_real_escape_string($db, $_POST['numCasa']);
+        $colonia = mysqli_real_escape_string($db, $_POST['colonia']);
+        $cp = mysqli_real_escape_string($db, $_POST['cp']);
+        $senas = mysqli_real_escape_string($db, $_POST['senas']);
       
    
-        if(!$email){
-            $errores[] = "Debes añadir un email";
+        if(!$calle){
+            $errores[] = "Debes añadir una calle";
          }
-        if(!$pass){
-        $errores[] = "Debes añadir una contraseña";
-        }
+        if(!$numCasa){
+        $errores[] = "Debes añadir un número de casa";
+        }           
+        if(!$colonia){
+             $errores[] = "Debes añadir una colonia";
+        }        
+        if (!$idUsuario) {
+            $errores[] = "No se puede obtener el Usuario de la sesión";
+        }      
+        if(!$cp){
+            $errores[] = "Debes añadir un código postal";
+        }     
+        
+        if(!$senas){
+            $errores[] = "Debes añadir al  una seña particular";
+            }       
 
         
     
         if(empty($errores)){
-            exit;
-            $query = "INSERT INTO contacto (Nombre, Correo_Electronico, Comentario, Fecha) VALUES ('{$nombre}', '{$email}', '{$mensaje}', '{$fecha}');";
+            $query = "INSERT INTO dirección (IDUSER, Calle, Número_de_Casa, Colonia, Código_Postal, Señas_Particulares) VALUES ({$idUsuario}, '{$calle}', '{$numCasa}', '{$colonia}', '{$cp}', '{$senas}');";
             $resultado = mysqli_query($db, $query);
 
-             if($resultado){
-                        header("Location: /POLLUELOS/index.html");
-                }
+            if ($resultado) {
+                header("Location: /POLLUELOS/metodoP.php");
         }
     }
-
+}
    
+ incluirTemplate('header', $inicio = true);
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Direccion de Envío</title>
-</head>
-
-<body>
-
-    <header class = "header">
-        <div class = "contenido-header">
-
-             <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
-    
-            <nav class = "navegacion">
-                <a href="index.html">Inicio</a>
-                <a href="menuP.html">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.html">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
-    
-
-        </div>
-    </header>
 
 
 
@@ -96,19 +75,19 @@
             <h1>Direccion de Envío</h1>
 
             <input type="text" placeholder="Calle" name = "calle" id="calle"
-            value = "<?php echo $nombre; ?>">
+            value = "<?php echo $calle; ?>">
 
             <input type="text" placeholder="Número de Casa" name = "numCasa" id="numCasa"
-            value = "<?php echo $nombre; ?>">
+            value = "<?php echo $numCasa; ?>">
 
             <input type="text" placeholder="Colonia" name = "colonia" id="colonia"
-            value = "<?php echo $nombre; ?>">            
+            value = "<?php echo $colonia; ?>">            
 
             <input type="text" placeholder="Código Postal" name = "cp" id="cp"
-            value = "<?php echo $nombre; ?>">  
+            value = "<?php echo $cp; ?>">  
 
             <input type="text" placeholder="Señas Particulares del Domicilio" name = "senas" id="senas"
-            value = "<?php echo $nombre; ?>">
+            value = "<?php echo $senas; ?>">
             
             <input type="submit" value = "Agregar Dirección" class = "boton-amarillo">
 

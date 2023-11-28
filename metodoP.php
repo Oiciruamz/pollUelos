@@ -1,7 +1,12 @@
 <?php
     // Importar la conexión
+    require 'includes/funciones.php';
+    session_start();
+
     require '../POLLUELOS/includes/config/database.php';
     $db = conectarDB();
+
+    $idUsuario = $_SESSION['idUsuario'] ?? '';
 
     $errores = [];
     $email = '';
@@ -12,75 +17,44 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        $email = mysqli_real_escape_string($db, $_POST['correo']);
-        $pass = mysqli_real_escape_string($db, $_POST['contrasena']);
+        $nombre = mysqli_real_escape_string($db, $_POST['nombre']);
+        $numero = mysqli_real_escape_string($db, $_POST['tarjeta']);
+        $fecha = mysqli_real_escape_string($db, $_POST['fecha']);
+        $cvv = mysqli_real_escape_string($db, $_POST['cvv']);
       
-   
-        if(!$email){
-            $errores[] = "Debes añadir un email";
+        
+        if (!$idUsuario) {
+            $errores[] = "No se puede obtener el Usuario de la sesión";
+        }      
+        if(!$nombre){
+            $errores[] = "Debes añadir un nombre";
          }
-        if(!$pass){
-        $errores[] = "Debes añadir una contraseña";
+        if(!$numero){
+        $errores[] = "Debes añadir una número de tarjeta";
         }
-
+        if(!$fecha){
+            $errores[] = "Debes añadir una fecha";
+            }       
+         if(!$cvv){
+                $errores[] = "Debes añadir los digitos CVV";
+            }
         
     
         if(empty($errores)){
-            exit;
-            $query = "INSERT INTO contacto (Nombre, Correo_Electronico, Comentario, Fecha) VALUES ('{$nombre}', '{$email}', '{$mensaje}', '{$fecha}');";
+            $query = "INSERT INTO tarjeta (Usuario, Nombre_Titular,
+            Numero_Tarjeta, Fecha_Vencimiento, CVV)
+             VALUES ('{$idUsuario}','{$nombre}', '{$numero}', '{$fecha}', {$cvv});";
             $resultado = mysqli_query($db, $query);
-
+            
              if($resultado){
-                        header("Location: /POLLUELOS/index.html");
+                        header("Location: /POLLUELOS/index.php");
                 }
         }
     }
 
+    incluirTemplate('header');
    
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Método de Pago</title>
-</head>
-
-<body>
-
-    <header class = "header">
-        <div class = "contenido-header">
-
-             <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
-    
-            <nav class = "navegacion">
-                <a href="index.html">Inicio</a>
-                <a href="menuP.html">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.html">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
-    
-
-        </div>
-    </header>
-
-
 
     <main class ="background-registro seccion">
         
@@ -102,17 +76,17 @@
             </div>
            
 
-            <input type="text" placeholder="Nombre del Titular" name = "numCasa" id="numCasa"
+            <input type="text" placeholder="Nombre del Titular" name = "nombre" id="nombre"
             value = "<?php echo $nombre; ?>">
 
             <input type="text" placeholder="Número de tarjeta" name = "tarjeta" id="tarjeta"
-            value = "<?php echo $nombre; ?>">            
+            value = "<?php echo $numero; ?>">            
 
-            <input type="text" placeholder="Fecha de Vencimiento (MM/YY)" name = "fecha" id="fecha"
-            value = "<?php echo $nombre; ?>" maxlength="5"/>  
+            <input type="month" placeholder="Fecha de Vencimiento (MM/YY)" name = "fecha" id="fecha"
+            value = "<?php echo $fecha; ?>" maxlength="5"/>  
 
             <input type="text" placeholder="CVV" name = "cvv" id="cvv"
-            value = "<?php echo $nombre; ?>">
+            value = "<?php echo $cvv; ?>" maxlength="4">
             
             <input type="submit" value = "Agregar Tarjeta" class = "boton-amarillo">
 

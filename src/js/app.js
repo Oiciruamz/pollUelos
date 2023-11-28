@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     eventListeners();
+    
 })
 
 function eventListeners(){
@@ -12,4 +13,8 @@ function eventListeners(){
 function navegacionResponsive(){
     const navegacion = document.querySelector('.navegacion');
     navegacion.classList.toggle('mostrar');
+}
+
+function redirigirAPagina() {
+    window.location.href = '/direnvio.php';
 }

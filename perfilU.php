@@ -1,50 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    require 'includes/funciones.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Polluelos</title>
-</head>
+    session_start();
 
-<body>
+    $Usuario = $_SESSION['idUsuario'] ?? '';
 
-    <header class = "header">
-        <div class = "contenido-header">
+    require '../POLLUELOS/includes/config/database.php';
+    $db = conectarDB();
 
-            <div class = "mobile-menu">
-                <img src="src/img/barras.svg" alt="" class="icono-barras">
-            </div>
-    
-            <nav class = "navegacion">
-                <a href="index.php">Inicio</a>
-                <a href="menuP.php">Menú</a>
-                <a href="contacto.php">Contacto</a>
-                <a href="nosotros.php">Nosotros</a>
-            </nav>
-    
-    
-            <div class="iconos">
-                <a href="#">
-                    <img src="src/img/carro.png" alt="" class = "icono">
-                </a>
-                <a href="login.php">
-                    <img src="src/img/usuario.png" alt="" class = "icono">
-                </a>
-            </div>
+    $consulta = "SELECT * FROM usuarios WHERE idUsuarios = {$Usuario}";
+    $resultado = mysqli_query($db, $consulta);
+    $usuario = mysqli_fetch_assoc($resultado);
 
-        </div>
-    </header>
+    incluirTemplate('header');
+   
+?>
 
-    <div class="perfil-Usuario">
+<div class="perfil-Usuario">
 
     <aside class="opciones-usuario">
                
                     <div class="Usuario">
                         <h2>Perfil Usuario</h2>
 
-                        <p>Nombre del Cliente</p>
+                        <p>Hola <?php echo $usuario['Nombre']." ".$usuario['Apellido'];?></p>
                     </div>
         
 
@@ -76,15 +55,11 @@
 
         <div class= "u-usuario">
                     <div class="opcion2">
-                     <a href="metodoP.php"><h4>Correo electronico</h4></a>
+                     <a href="metodoP.php"><h4><?php echo $usuario['Email']?></h4></a>
                     </div>
-
+                    
                     <div class="opcion2">
-                     <a href="metodoP.php"><h4>Cambiar Contraseña</h4></a>
-                    </div>
-
-                    <div class="opcion2">
-                     <a href="metodoP.php"><h4>Cerrar Sesión</h4></a>
+                     <a href="cerrar-sesion.php"><h4>Cerrar Sesión</h4></a>
                     </div>
         </div>
 
